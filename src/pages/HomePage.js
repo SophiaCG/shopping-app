@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import ProductBoxGroup from "../components/ProductBoxGroup";
+import FiltersBox from "../components/FiltersBox";
 
 function HomePage() {
   const [data, setData] = useState(null);
@@ -46,6 +47,7 @@ function HomePage() {
           className="homepage-header"
         ></img>
       </div>
+      <FiltersBox></FiltersBox>
       <ProductBoxGroup data={data}></ProductBoxGroup>
     </div>
   );
