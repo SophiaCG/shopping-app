@@ -21,19 +21,19 @@ const NavBar = ({}) => {
       </Link>
       <DropdownMenu></DropdownMenu>
       <button className="nav-bar-button" onClick={console.log("Deals")}>
-        <h3>Deals</h3>
+        <h4>Deals</h4>
       </button>
       <button className="nav-bar-button" onClick={console.log("Whats New")}>
-        <h3>What's New</h3>
+        <h4>What's New</h4>
       </button>
       <button className="nav-bar-button" onClick={console.log("Delivery")}>
-        <h3>Delivery</h3>
+        <h4>Delivery</h4>
       </button>
 
       <SearchBar onSearch={handleSearch} />
       <Link to="/details" style={{ textDecoration: "none", color: "inherit" }}>
         <div class="nav-bar-link">
-          <i class="fa-regular fa-user" id="link-icon"></i> <h3>Account</h3>{" "}
+          <i class="fa-regular fa-user" id="link-icon"></i> <h4>Account</h4>{" "}
         </div>
       </Link>
       <Link
@@ -42,7 +42,7 @@ const NavBar = ({}) => {
       >
         <div class="nav-bar-link">
           <i class="fa-solid fa-cart-shopping" id="link-icon"></i>
-          <h3>Cart</h3>
+          <h4>Cart</h4>
         </div>
       </Link>
     </div>

@@ -1,6 +1,7 @@
 :root {
   --widgetColor: #f5f6f6;
   --buttonColor: #003d28;
+  --pTextColor: #383635;
 }
 
 body {
@@ -17,12 +18,23 @@ code {
     monospace;
 }
 
+p {
+  color: var(--pTextColor);
+  font-weight: 600;
+  font-size: small;
+}
+
 h1 {
   color: var(--buttonColor);
   white-space: nowrap;
 }
 
 h3 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+h4 {
   font-weight: 500;
   font-size: medium;
   white-space: nowrap;
@@ -98,16 +110,134 @@ input {
   font-size: 1.5rem;
 }
 
+/* Homepage Header */
+
+.header-container {
+  height: 350px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-header {
+  object-fit: cover;
+  height: 100%;
+}
+
+/* Product Box */
+
+.product-box {
+  width: 325px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-box-image {
+  height: 325px;
+  width: 325px;
+  border-radius: 10px;
+}
+
+.product-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price {
+  font-weight: 800;
+}
+
+.product-desc {
+  margin: 0;
+}
+
+.product-box-button {
+  background: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 50px;
+  height: 45px;
+  width: 130px;
+  display: flex;
+  align-items: center;
+}
+
+.product-box-button:hover {
+  background-color: var(--buttonColor);
+  color: white;
+}
+
+.ratings-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+#solid-star {
+  color: #0bac0c;
+  font-size: 13px;
+}
+
+#regular-star {
+  color: gray;
+  font-size: 13px;
+}
+
+#product-box-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
+  justify-content: center;
+  row-gap: 60px;
+  column-gap: 40px;
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
 /* Resizing */
 
 @media (max-width: 1600px) {
+  #nav-bar {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
   .search-bar {
     margin-left: 50px;
     margin-right: 10px;
   }
+}
 
+@media (max-width: 1500px) {
   #nav-bar {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  #nav-bar-home {
+    margin-right: 10px;
+  }
+
+  .search-bar {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  #nav-bar {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }

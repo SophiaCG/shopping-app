@@ -10,7 +10,7 @@ function DropdownMenu() {
   return (
     <div className="dropdown">
       <button className="nav-bar-button" onClick={toggleDropdown}>
-        <h3>Categories</h3>
+        <h4>Categories</h4>
         <i
           className={`fa-solid ${isOpen ? "fa-angle-up" : "fa-angle-down"}`}
         ></i>
