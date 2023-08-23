@@ -7,8 +7,14 @@ const ProductBox = ({ product }) => {
     <div className="product-box">
       <div className="product-box-info">
         <Link
-          to="/details"
-          style={{ textDecoration: "none", color: "inherit" }}
+          to={{
+            pathname: "/details",
+            state: product, // your data array of objects
+          }}
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+          }}
         >
           <img
             src={product.images[0]}
@@ -19,8 +25,14 @@ const ProductBox = ({ product }) => {
 
         <div className="product-box-header">
           <Link
-            to="/details"
-            style={{ textDecoration: "none", color: "inherit" }}
+            to={{
+              pathname: "/details",
+              state: product, // your data array of objects
+            }}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+            }}
           >
             <h3>{product.title}</h3>
           </Link>

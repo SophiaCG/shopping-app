@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import ProductBoxGroup from "../components/ProductBoxGroup";
-import FiltersBox from "../components/FiltersBox";
+import DropdownMenu from "../components/DropDownMenu";
+import PriceSliders from "../components/PriceSliders";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const [data, setData] = useState(null);
@@ -47,7 +49,10 @@ function HomePage() {
           className="homepage-header"
         ></img>
       </div>
-      <FiltersBox></FiltersBox>
+      <div className="filters-box">
+        <DropdownMenu></DropdownMenu>
+        <PriceSliders></PriceSliders>
+      </div>
       <ProductBoxGroup data={data}></ProductBoxGroup>
     </div>
   );

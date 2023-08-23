@@ -129,7 +129,7 @@ input {
   height: 100%;
 }
 
-/* Filters Box */
+/* Filter: Category Button */
 .categories-label {
   font-weight: 600;
 }
@@ -137,6 +137,9 @@ input {
 .filters-box {
   margin-top: 50px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .dropdown-button {
@@ -174,6 +177,41 @@ input {
   color: white;
 }
 
+/* Filter: Price Sliders */
+.price-slider-container {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--widgetColor);
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.price-slider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.apply-button-container {
+  display: flex;
+  justify-content: end;
+}
+
+.apply-button {
+  border: none;
+  background: none;
+}
+
+.apply-button-label {
+  color: #058cea;
+  cursor: pointer;
+}
+
+.apply-button-label:hover {
+  color: #3ea3ea;
+}
+
 /* Product Box */
 
 .product-box {
@@ -188,6 +226,7 @@ input {
   height: 340px;
   width: 340px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .product-box-header {
