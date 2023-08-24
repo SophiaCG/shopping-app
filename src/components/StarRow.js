@@ -24,12 +24,15 @@ function StarRow() {
   };
 
   return (
-    <div className="star-row">
-      {[...Array(totalIcons)].map((_, index) => (
-        <div key={index}>
-          <i className={`${starType(index)} fa-star`} id={starId(index)}></i>
-        </div>
-      ))}
+    <div className="ratings-box">
+      <div className="star-row">
+        {[...Array(totalIcons)].map((_, index) => (
+          <div key={index}>
+            <i className={`${starType(index)} fa-star`} id={starId(index)}></i>
+          </div>
+        ))}
+      </div>
+      <p>({Math.floor(Math.random() * 1000)})</p>
     </div>
   );
 }

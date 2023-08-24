@@ -40,10 +40,7 @@ const ProductBox = ({ product }) => {
         </div>
         <p className="product-desc">{product.description}</p>
 
-        <div className="ratings-box">
-          <StarRow></StarRow>
-          <p>({Math.floor(Math.random() * 1000)})</p>
-        </div>
+        <StarRow></StarRow>
       </div>
 
       <button className="product-box-button" onClick={console.log("")}>
