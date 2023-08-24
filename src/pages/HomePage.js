@@ -8,12 +8,19 @@ import { Link } from "react-router-dom";
 function HomePage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [menuStatus, setMenuStatus] = useState(false);
+  const [sliderStatus, setSliderStatus] = useState(false);
+
+  // const toggleActive = () => {
+  //   setIsActive(!isActive);
+  // };
 
   // Modify the fetchData function to accept a query parameter
   const fetchData = (query) => {
     setLoading(true);
 
-    fetch(`https://api.escuelajs.co/api/v1/products`)
+    console.log(`QUERY: ${query}`);
+    fetch(`https://api.escuelajs.co/api/v1/products/?title=${query}`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -28,20 +35,20 @@ function HomePage() {
 
   useEffect(() => {
     // Make the initial API call with the default query "us"
-    fetchData();
+    fetchData("");
   }, []);
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!data) {
+  if (!data || !data[0]) {
     return <div>No products found.</div>;
   }
 
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBar fetchData={fetchData}></NavBar>
       <div className="header-container">
         <img
           src="/images/homepage-header.png"
@@ -50,8 +57,18 @@ function HomePage() {
         ></img>
       </div>
       <div className="filters-box">
-        <DropdownMenu></DropdownMenu>
-        <PriceSliders></PriceSliders>
+        <DropdownMenu
+          menuStatus={menuStatus}
+          setMenuStatus={setMenuStatus}
+          sliderStatus={sliderStatus}
+          setSliderStatus={setSliderStatus}
+        ></DropdownMenu>
+        <PriceSliders
+          menuStatus={menuStatus}
+          setMenuStatus={setMenuStatus}
+          sliderStatus={sliderStatus}
+          setSliderStatus={setSliderStatus}
+        ></PriceSliders>
       </div>
       <ProductBoxGroup data={data}></ProductBoxGroup>
     </div>

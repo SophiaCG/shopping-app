@@ -216,7 +216,7 @@ input {
 
 .product-box {
   width: 340px;
-  height: 540px;
+  height: 560px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

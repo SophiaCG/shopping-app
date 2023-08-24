@@ -46,10 +46,7 @@ const ProductBox = ({ product }) => {
         </div>
       </div>
 
-      <button
-        className="product-box-button"
-        onClick={console.log("Add to cart")}
-      >
+      <button className="product-box-button" onClick={console.log("")}>
         <h3>Add to Cart</h3>
       </button>
     </div>

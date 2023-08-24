@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 
-function PriceSliders() {
-  const [isOpen, setIsOpen] = useState(false);
-
+function PriceSliders({
+  menuStatus,
+  setMenuStatus,
+  sliderStatus,
+  setSliderStatus,
+}) {
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    if (menuStatus == true) {
+      setMenuStatus(!menuStatus);
+    }
+    setSliderStatus(!sliderStatus);
   };
 
   const [minSliderValue, setMinSliderValue] = useState(50);
@@ -15,10 +21,12 @@ function PriceSliders() {
       <button className="dropdown-button" onClick={toggleDropdown}>
         <h4 className="categories-label">Price</h4>
         <i
-          className={`fa-solid ${isOpen ? "fa-angle-up" : "fa-angle-down"}`}
+          className={`fa-solid ${
+            sliderStatus ? "fa-angle-up" : "fa-angle-down"
+          }`}
         ></i>
       </button>
-      {isOpen && (
+      {sliderStatus && (
         <div className="price-slider-container">
           <div className="price-slider">
             <input

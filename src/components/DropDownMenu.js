@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 
-function DropdownMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-
+function DropdownMenu({
+  menuStatus,
+  setMenuStatus,
+  sliderStatus,
+  setSliderStatus,
+}) {
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    if (sliderStatus == true) {
+      setSliderStatus(!sliderStatus);
+    }
+    setMenuStatus(!menuStatus);
   };
 
   return (
@@ -12,10 +18,10 @@ function DropdownMenu() {
       <button className="dropdown-button" onClick={toggleDropdown}>
         <h4 className="categories-label">Categories</h4>
         <i
-          className={`fa-solid ${isOpen ? "fa-angle-up" : "fa-angle-down"}`}
+          className={`fa-solid ${menuStatus ? "fa-angle-up" : "fa-angle-down"}`}
         ></i>
       </button>
-      {isOpen && (
+      {menuStatus && (
         <div className="dropdown-menu">
           <button className="category-button" onClick={console.log("Clothes")}>
             <h4 className="categories-label">Clothes</h4>

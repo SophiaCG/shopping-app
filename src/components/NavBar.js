@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import SearchBar from "./SearchBar";
 
-const NavBar = ({}) => {
+const NavBar = ({ fetchData }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const handleSearch = (query) => {
+    // event.preventDefault();
+
     console.log("Search query:", query);
+    fetchData(query);
+    setSearchTerm("");
+
     // Perform your search or other actions here
   };
 
@@ -19,13 +26,13 @@ const NavBar = ({}) => {
           <img id="shop-logo" src="images/shop.png" />
           <h1>The Shop</h1>
         </Link>
-        <button className="nav-bar-button" onClick={console.log("Deals")}>
+        <button className="nav-bar-button">
           <h4>Deals</h4>
         </button>
-        <button className="nav-bar-button" onClick={console.log("Whats New")}>
+        <button className="nav-bar-button">
           <h4>What's New</h4>
         </button>
-        <button className="nav-bar-button" onClick={console.log("Delivery")}>
+        <button className="nav-bar-button">
           <h4>Delivery</h4>
         </button>
       </div>
