@@ -242,6 +242,34 @@ input {
   width: 340px;
   border-radius: 10px;
   object-fit: cover;
+  position: absolute;
+  border: 1px solid gray;
+}
+
+.product-image-heart-container {
+  position: relative;
+  height: 340px;
+  width: 340px;
+}
+
+.heart-container {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--widgetColor);
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: 1px solid black;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.fa-heart {
+  font-size: 1.25rem;
 }
 
 .product-box-header {

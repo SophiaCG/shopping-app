@@ -6,22 +6,27 @@ const ProductBox = ({ product }) => {
   return (
     <div className="product-box">
       <div className="product-box-info">
-        <Link
-          to={{
-            pathname: "/details",
-            state: product, // your data array of objects
-          }}
-          style={{
-            textDecoration: "none",
-            color: "inherit",
-          }}
-        >
-          <img
-            src={product.images[0]}
-            alt="Image"
-            className="product-box-image"
-          />
-        </Link>
+        <div className="product-image-heart-container">
+          <Link
+            to={{
+              pathname: "/details",
+              state: product, // your data array of objects
+            }}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
+            <img
+              src={product.images[0]}
+              alt="Image"
+              className="product-box-image"
+            />
+          </Link>
+          <div className="heart-container">
+            <i class="fa-regular fa-heart"></i>
+          </div>
+        </div>
 
         <div className="product-box-header">
           <Link
