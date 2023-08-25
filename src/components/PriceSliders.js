@@ -49,7 +49,7 @@ function PriceSliders({
             <p>Max: {maxSliderValue}</p>
           </div>
           <div className="apply-button-container">
-            <button className="apply-button" onClick={console.log("Apply")}>
+            <button className="apply-button" onClick={toggleDropdown}>
               <h3 className="apply-button-label">Apply</h3>
             </button>
           </div>

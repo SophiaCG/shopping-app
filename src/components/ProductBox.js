@@ -36,11 +36,11 @@ const ProductBox = ({ product }) => {
           >
             <h3>{product.title}</h3>
           </Link>
-          <h3 className="product-price">${product.price}</h3>
+          <h3 className="product-price">${product.price}.00</h3>
         </div>
         <p className="product-desc">{product.description}</p>
 
-        <StarRow></StarRow>
+        <StarRow rating={product.rating}></StarRow>
       </div>
 
       <button className="product-box-button" onClick={console.log("")}>

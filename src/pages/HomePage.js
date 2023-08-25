@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 
 function HomePage() {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [queryLoading, setQueryLoading] = useState(true);
+  const [categories, setCategories] = useState(null);
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
   const [menuStatus, setMenuStatus] = useState(false);
   const [sliderStatus, setSliderStatus] = useState(false);
 
@@ -16,29 +18,54 @@ function HomePage() {
   // };
 
   // Modify the fetchData function to accept a query parameter
-  const fetchData = (query) => {
-    setLoading(true);
+  const fetchData = (query = "", category = "") => {
+    let searchQuery = "";
+    setQueryLoading(true);
 
-    console.log(`QUERY: ${query}`);
-    fetch(`https://api.escuelajs.co/api/v1/products/?title=${query}`)
+    if (query != "") {
+      searchQuery = `/search?q=${query}`;
+    }
+
+    if (category != "") {
+      searchQuery = `/category/${category}`;
+    }
+
+    fetch(`https://dummyjson.com/products${searchQuery}`)
       .then((response) => response.json())
       .then((data) => {
-        setData(data);
-        setLoading(false);
-        console.log(data[0].title);
+        setData(data.products);
+        setQueryLoading(false);
+        // console.log(`DATA: ${data.products[0].title}`);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        setLoading(false);
+        setQueryLoading(false);
+      });
+  };
+
+  const fetchCategories = () => {
+    setCategoriesLoading(true);
+
+    fetch(`https://dummyjson.com/products/categories`)
+      .then((response) => response.json())
+      .then((data) => {
+        setCategories(data);
+        setCategoriesLoading(false);
+        console.log(`CATEGORY: ${data[0]}`);
+      })
+      .catch((error) => {
+        console.error("Error fetching categories:", error);
+        setCategoriesLoading(false);
       });
   };
 
   useEffect(() => {
     // Make the initial API call with the default query "us"
     fetchData("");
+    fetchCategories();
   }, []);
 
-  if (loading) {
+  if (queryLoading) {
     return <div>Loading...</div>;
   }
 
@@ -58,6 +85,8 @@ function HomePage() {
       </div>
       <div className="filters-box">
         <DropdownMenu
+          categories={categories}
+          fetchData={fetchData}
           menuStatus={menuStatus}
           setMenuStatus={setMenuStatus}
           sliderStatus={sliderStatus}

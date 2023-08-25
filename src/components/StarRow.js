@@ -1,10 +1,9 @@
 import React from "react";
 
-function StarRow() {
+function StarRow({ rating }) {
   const minIcons = 3;
   const maxIcons = 5;
-  const numberOfIcons =
-    Math.floor(Math.random() * (maxIcons - minIcons + 1)) + minIcons;
+  const numberOfIcons = customRound(rating);
   const totalIcons = 5;
 
   const starType = (index) => {
@@ -22,6 +21,15 @@ function StarRow() {
       return "regular-star";
     }
   };
+
+  function customRound(number) {
+    const decimalPart = number - Math.floor(number); // Get the decimal part
+    if (decimalPart >= 0.5) {
+      return Math.ceil(number); // Round up if decimal part is 0.5 or greater
+    } else {
+      return Math.floor(number); // Round down otherwise
+    }
+  }
 
   return (
     <div className="ratings-box">

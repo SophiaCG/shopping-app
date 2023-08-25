@@ -1,16 +1,51 @@
 import React, { useState } from "react";
 
 function DropdownMenu({
+  categories,
+  fetchData,
   menuStatus,
   setMenuStatus,
   sliderStatus,
   setSliderStatus,
 }) {
+  const handleSearch = (selectedCategory) => {
+    // event.preventDefault();
+
+    fetchData("", selectedCategory);
+    toggleDropdown();
+
+    // Perform your search or other actions here
+  };
+
   const toggleDropdown = () => {
     if (sliderStatus == true) {
       setSliderStatus(!sliderStatus);
     }
     setMenuStatus(!menuStatus);
+  };
+
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  const renderBoxes = () => {
+    const boxes = [];
+
+    for (let i = 0; i < categories.length; i++) {
+      boxes.push(
+        <button
+          className="category-button"
+          onClick={() => {
+            handleSearch(categories[i]);
+          }}
+        >
+          <h4 className="categories-label">
+            {capitalizeFirstLetter(categories[i])}
+          </h4>
+        </button>
+      );
+    }
+    return boxes;
   };
 
   return (
@@ -21,37 +56,7 @@ function DropdownMenu({
           className={`fa-solid ${menuStatus ? "fa-angle-up" : "fa-angle-down"}`}
         ></i>
       </button>
-      {menuStatus && (
-        <div className="dropdown-menu">
-          <button className="category-button" onClick={console.log("Clothes")}>
-            <h4 className="categories-label">Clothes</h4>
-          </button>
-          <button
-            className="category-button"
-            onClick={console.log("Electronics")}
-          >
-            <h4 className="categories-label">Electronics</h4>
-          </button>
-          <button
-            className="category-button"
-            onClick={console.log("Furniture")}
-          >
-            <h4 className="categories-label">Furniture</h4>
-          </button>
-          <button className="category-button" onClick={console.log("Shoes")}>
-            <h4 className="categories-label">Shoes</h4>
-          </button>
-          <button className="category-button" onClick={console.log("Others")}>
-            <h4 className="categories-label">Others</h4>
-          </button>
-          <button
-            className="category-button"
-            onClick={console.log("Clear All")}
-          >
-            <h4 className="categories-label">Clear All</h4>
-          </button>
-        </div>
-      )}
+      {menuStatus && <div className="dropdown-menu">{renderBoxes()}</div>}
     </div>
   );
 }

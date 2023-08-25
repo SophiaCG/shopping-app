@@ -20,7 +20,7 @@ function DetailsPage() {
     <div>
       <NavBar></NavBar>
       <p className="product-listing">
-        {product.category.name} / {product.title}
+        {product.category} / {product.title}
       </p>
       <div className="row">
         <div className="column">
@@ -38,10 +38,10 @@ function DetailsPage() {
         <div className="column">
           <h1>{product.title}</h1>
           <p>{product.description}</p>
-          <StarRow></StarRow>
+          <StarRow rating={product.rating}></StarRow>
           <hr></hr>
           <h2>
-            ${product.price}.00 or {product.price / 6}.00/month
+            ${product.price}.00 or {(product.price / 6).toFixed(2)}/month
           </h2>
           <p>Suggested payments with 6 months special financing</p>
           <hr></hr>
@@ -55,7 +55,8 @@ function DetailsPage() {
           <div className="counter-button-text">
             <Counter></Counter>
             <h5>
-              Only <strong>12 items</strong> left! <br></br> Don't miss it
+              Only <strong>{product.stock} items</strong> left! <br></br> Don't
+              miss it
             </h5>
           </div>
           <div className="buy-buttons-container">

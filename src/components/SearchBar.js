@@ -8,7 +8,13 @@ function SearchBar({ onSearch }) {
   };
 
   const handleSearch = () => {
-    onSearch(query); // Pass the query to the parent component
+    onSearch(query);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
 
   return (
@@ -18,9 +24,10 @@ function SearchBar({ onSearch }) {
         placeholder="Search Product"
         value={query}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown} // Add the onKeyDown event handler
       />
       <button id="search-button" onClick={handleSearch}>
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-magnifying-glass"></i>
       </button>
     </div>
   );

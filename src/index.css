@@ -121,6 +121,11 @@ input {
   margin-left: 15px;
 }
 
+.nav-bar-link:hover,
+.nav-bar-button:hover {
+  color: var(--buttonColor);
+}
+
 #link-icon {
   font-size: 1.5rem;
 }
@@ -176,7 +181,7 @@ input {
 }
 
 .category-button {
-  width: 350px;
+  width: 300px;
   background-color: var(--widgetColor);
   border: 1px solid grey;
   cursor: pointer;
