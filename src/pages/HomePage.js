@@ -3,7 +3,6 @@ import NavBar from "../components/NavBar";
 import ProductBoxGroup from "../components/ProductBoxGroup";
 import DropdownMenu from "../components/DropDownMenu";
 import PriceSliders from "../components/PriceSliders";
-import { Link } from "react-router-dom";
 
 function HomePage() {
   const [data, setData] = useState(null);
@@ -13,11 +12,6 @@ function HomePage() {
   const [menuStatus, setMenuStatus] = useState(false);
   const [sliderStatus, setSliderStatus] = useState(false);
 
-  // const toggleActive = () => {
-  //   setIsActive(!isActive);
-  // };
-
-  // Modify the fetchData function to accept a query parameter
   const fetchData = (query = "", category = "") => {
     let searchQuery = "";
     setQueryLoading(true);

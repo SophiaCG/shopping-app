@@ -174,7 +174,7 @@ input {
 
 .dropdown-menu {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   background-color: var(--widgetColor);
   display: grid;
   grid-template-columns: 1fr 1fr;

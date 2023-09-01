@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 const ColorsBoxesGroup = ({ data, activeState, toggleActive }) => {
   const renderBoxes = () => {
     return data.map((color, index) => (
