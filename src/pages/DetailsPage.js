@@ -6,14 +6,34 @@ import Counter from "../components/Counter";
 import DeliveryNotes from "../components/DeliveryNotes";
 import ColorsCirclesGroup from "../components/ColorsCirclesGroup";
 import ColorsBoxesGroup from "../components/ColorsBoxesGroup";
+import axios from "axios"; // Import axios
 
 function DetailsPage() {
   const location = useLocation();
   const product = location.state; // Access the passed data
   const [activeState, setActiveStates] = useState(0);
+  const [cartItems, setCartItems] = useState([]); // State for cart items
+  const [count, setCount] = useState(1);
 
   const toggleActive = (index) => {
     setActiveStates(index);
+  };
+
+  const handleAddToCart = () => {
+    const cartItem = {
+      id: product.id,
+      quantity: count,
+    };
+
+    axios
+      .post("http://localhost:8000/cart", cartItem)
+      .then((response) => {
+        // Update the cart items state with the newly added item
+        setCartItems([...cartItems, response.data]);
+      })
+      .catch((error) => {
+        console.error("Error adding item to cart:", error);
+      });
   };
 
   return (
@@ -53,7 +73,7 @@ function DetailsPage() {
           ></ColorsCirclesGroup>
           <hr></hr>
           <div className="counter-button-text">
-            <Counter></Counter>
+            <Counter count={count} setCount={setCount} />
             <h5>
               Only <strong>{product.stock} items</strong> left! <br></br> Don't
               miss it
@@ -68,7 +88,9 @@ function DetailsPage() {
             </button>
             <button
               className="product-box-button details-buy"
-              onClick={console.log("")}
+              onClick={() => {
+                handleAddToCart();
+              }}
             >
               <h3>Add to Cart</h3>
             </button>
