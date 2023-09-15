@@ -512,6 +512,7 @@ hr {
   margin-top: 20px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .cart-image {
@@ -531,6 +532,17 @@ hr {
 
 .cart-item-text-container > div:last-child {
   width: 120px;
+}
+
+.delete-button {
+  border: none;
+  background: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  position: absolute;
+  color: #931d1f;
 }
 
 .delivery-text-container {

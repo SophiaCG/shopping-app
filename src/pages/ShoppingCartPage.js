@@ -21,6 +21,11 @@ function ShoppingCartPage() {
       });
   }, []);
 
+  const handleDeleteItem = (itemId) => {
+    // Update the state to remove the deleted item
+    setData((prevData) => prevData.filter((item) => item._id !== itemId));
+  };
+
   return (
     <div>
       <NavBar></NavBar>
@@ -28,8 +33,15 @@ function ShoppingCartPage() {
         <div className="cart-left-column">
           <div className="cart-item-container">
             <h1>Review Item and Shipping</h1>
-            {data.map((item) => (
-              <CartItemInfo key={item._id} item={item} />
+            {data.map((item, index) => (
+              <div key={item._id}>
+                <CartItemInfo
+                  key={item._id}
+                  item={item}
+                  onDelete={handleDeleteItem}
+                />
+                {index !== data.length - 1 && <hr />}
+              </div>
             ))}
           </div>
           <div className="cart-item-container">

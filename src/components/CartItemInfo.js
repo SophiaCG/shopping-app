@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import StarRow from "./StarRow";
+import DeleteButton from "./DeleteButton";
 
-function CartItemInfo({ item }) {
-  const [data, setData] = useState(1);
+function CartItemInfo({ item, onDelete }) {
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     function fetchProductById() {
       fetch(`https://dummyjson.com/products/${item.id}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setData(data);
         })
         .catch((error) => {
@@ -19,22 +19,26 @@ function CartItemInfo({ item }) {
 
     // Call the function with a specific product ID
     fetchProductById();
-  }, []);
+  }, [item.id]);
 
   return (
     <div className="cart-item-info-container">
-      <img src={data.thumbnail} alt="Image" className="cart-image" />
-      <div className="cart-item-text-container">
-        <div>
-          <h2>{data.title}</h2>
-          <StarRow rating={data.rating}></StarRow>
-          {/* <h3>Rating: {data.rating} / 5</h3> */}
-        </div>
-        <div>
-          <h2>${data.price}.00</h2>
-          <h3>Quantity: {item.quantity}</h3>
-        </div>
-      </div>
+      {data && (
+        <>
+          <img src={data.thumbnail} alt="Image" className="cart-image" />
+          <div className="cart-item-text-container">
+            <div>
+              <h2>{data.title}</h2>
+              <StarRow rating={data.rating}></StarRow>
+            </div>
+            <div>
+              <h2>${data.price}.00</h2>
+              <h3>Quantity: {item.quantity}</h3>
+            </div>
+          </div>
+          <DeleteButton itemId={item._id} onDelete={onDelete} />
+        </>
+      )}
     </div>
   );
 }
