@@ -32,7 +32,7 @@ function CartItemInfo({ item, onDelete }) {
               <StarRow rating={data.rating}></StarRow>
             </div>
             <div>
-              <h2>${data.price}.00</h2>
+              <h2>${item.price}.00</h2>
               <h3>Quantity: {item.quantity}</h3>
             </div>
           </div>

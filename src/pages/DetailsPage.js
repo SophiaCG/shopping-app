@@ -23,6 +23,7 @@ function DetailsPage() {
     const cartItem = {
       id: product.id,
       quantity: count,
+      price: count * product.price,
     };
 
     axios
