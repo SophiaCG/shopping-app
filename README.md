@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# Shopping App
+Simple e-commerce React app that uses MongoDB for the backend. I also used a fake e-commerce API for the fake products information.
+
+[Fake Shopping API](https://dummyjson.com/docs/products)
+
+<img width="800" alt="shopping-website" src="https://github.com/SophiaCG/shopping-app/assets/64823305/95803a77-e2db-49f3-b93d-c90d15ac06ce">
+
+<img width="800" alt="shopping-website-2" src="https://github.com/SophiaCG/shopping-app/assets/64823305/3797b9de-1243-424c-b397-74b742b9ee82">
+
+<img width="800" alt="shopping-website-3" src="https://github.com/SophiaCG/shopping-app/assets/64823305/1e3f6ed4-14fa-4576-bc60-7b564a573672">
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
