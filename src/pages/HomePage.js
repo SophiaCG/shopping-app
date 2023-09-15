@@ -29,7 +29,6 @@ function HomePage() {
       .then((data) => {
         setData(data.products);
         setQueryLoading(false);
-        // console.log(`DATA: ${data.products[0].title}`);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
