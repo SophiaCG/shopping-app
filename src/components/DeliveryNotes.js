@@ -15,7 +15,7 @@ function DeliveryNotes() {
           <i class="fa-solid fa-box"></i>
           <div className="delivery-notes-text">
             <h5>Return Delivery</h5>
-            <h5>Free 30days Delivery Returns. Details</h5>
+            <h5>Free 30 days Delivery Returns. Details</h5>
           </div>
         </div>
       </div>

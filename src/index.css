@@ -358,8 +358,8 @@ input {
 
 .column:first-child {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .column:last-child {
@@ -368,8 +368,9 @@ input {
 }
 
 .details-image {
-  width: 600px;
-  height: 600px;
+  width: 580px;
+  height: 580px;
+  position: absolute;
 }
 
 .color-box {
@@ -381,8 +382,10 @@ input {
 
 .colors-boxes-group {
   display: flex;
-  margin-top: 10px;
   gap: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .color-circle {
@@ -524,6 +527,10 @@ hr {
   align-items: center;
   width: 100%;
   padding: 20px;
+}
+
+.cart-item-text-container > div:last-child {
+  width: 120px;
 }
 
 .delivery-text-container {

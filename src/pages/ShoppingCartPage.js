@@ -1,8 +1,26 @@
 import NavBar from "../components/NavBar";
 import CouponSearchBar from "../components/CouponSearchBar";
 import RadioButtons from "../components/RadioButtons";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import CartItemInfo from "../components/CartItemInfo";
 
 function ShoppingCartPage() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const apiUrl = "http://localhost:8000/cart";
+
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
     <div>
       <NavBar></NavBar>
@@ -10,23 +28,9 @@ function ShoppingCartPage() {
         <div className="cart-left-column">
           <div className="cart-item-container">
             <h1>Review Item and Shipping</h1>
-            <div className="cart-item-info-container">
-              <img
-                src={"/images/headphones.jpg"}
-                alt="Image"
-                className="cart-image"
-              />
-              <div className="cart-item-text-container">
-                <div>
-                  <h2>Airpods-Max</h2>
-                  <h3>Color: Pink</h3>
-                </div>
-                <div>
-                  <h2>$549.00</h2>
-                  <h3>Quantity: 01</h3>
-                </div>
-              </div>
-            </div>
+            {data.map((item) => (
+              <CartItemInfo key={item._id} item={item} />
+            ))}
           </div>
           <div className="cart-item-container">
             <div className="delivery-header-container">
